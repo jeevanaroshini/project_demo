@@ -1,6 +1,13 @@
 package com.dbs.project.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="customers")
 public class Customers {
+	@Id
 	int cusID;
 	long clearBalance;
 	String cusName;
