@@ -8,47 +8,53 @@ import javax.persistence.Table;
 @Table(name="customers")
 public class Customers {
 	@Id
-	int cusID;
-	long clearBalance;
-	String cusName;
-	boolean overdraft;
+	String username;
+	String customerID;
+	String custName;
+	double balance;
+	String overDraft;
 	public Customers() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Customers(int cusID, long clearBalance, String cusName, boolean overdraft) {
+	public String getCustomerID() {
+		return customerID;
+	}
+	public void setCustomerID(String customerID) {
+		this.customerID = customerID;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getCustName() {
+		return custName;
+	}
+	public void setCustName(String custName) {
+		this.custName = custName;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	public String getOverDraft() {
+		return overDraft;
+	}
+	public void setOverDraft(String overDraft) {
+		this.overDraft = overDraft;
+	}
+	public Customers(String customerID, String username, String custName, double balance, String overDraft) {
 		super();
-		this.cusID = cusID;
-		this.clearBalance = clearBalance;
-		this.cusName = cusName;
-		this.overdraft = overdraft;
+		this.customerID = customerID;
+		this.username = username;
+		this.custName = custName;
+		this.balance = balance;
+		this.overDraft = overDraft;
 	}
-	public int getCusID() {
-		return cusID;
-	}
-	public void setCusID(int cusID) {
-		this.cusID = cusID;
-	}
-	public long getClearBalance() {
-		return clearBalance;
-	}
-	public void setClearBalance(long clearBalance) {
-		this.clearBalance = clearBalance;
-	}
-	public String getCusName() {
-		return cusName;
-	}
-	public void setCusName(String cusName) {
-		this.cusName = cusName;
-	}
-	public boolean isOverdraft() {
-		return overdraft;
-	}
-	public void setOverdraft(boolean overdraft) {
-		this.overdraft = overdraft;
-	}
-	
-	
 	
 
 }

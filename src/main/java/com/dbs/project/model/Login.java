@@ -1,7 +1,12 @@
 package com.dbs.project.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Login {
-	String userName;
+	@Id
+	String username;
 	String password;
 	public Login() {
 		super();
@@ -9,14 +14,14 @@ public class Login {
 	}
 	public Login(String userName, String password) {
 		super();
-		this.userName = userName;
+		this.username = userName;
 		this.password = password;
 	}
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 	public String getPassword() {
 		return password;
