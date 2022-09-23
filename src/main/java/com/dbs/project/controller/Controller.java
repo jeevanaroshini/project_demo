@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dbs.project.model.Customers;
+import com.dbs.project.service.CustomerService;
 //import com.dbs.project.service.CustomerService;
 import com.dbs.project.service.LoginService;
 
@@ -50,4 +51,13 @@ public class Controller {
 	public String login(@RequestParam( "username" )String username,@RequestParam( "password" )String password) {
 	return ls.validateUser(username,password);
 	}
+	
+	@Autowired
+	CustomerService cs;
+	
+	@RequestMapping ("/sender")
+	public List<Customers> sendDetails(@RequestParam( "username" )String username) {
+	return cs.senderDetails(username);
+	}
+	
 }
