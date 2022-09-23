@@ -15,16 +15,23 @@ import com.dbs.project.repo.LoginRepo;
 
 @Service
 public class LoginService {
-	
+
 	@Autowired
 	LoginRepo lr;
 	
-	EmployeeService es;
+	@Autowired
+	CustomerRepo cr;
+	
+	@Autowired
+	EmpRepo er;
+	
+	//@Autowired
+	//EmployeeService es;
 	/*
 	public List<Customers> run() {
 		return lr.findAll();
 	}
-*/
+	 */
 	public String validateUser(String username, String password) {
 		// TODO Auto-generated method stub
 		String status="";
@@ -33,12 +40,19 @@ public class LoginService {
 		if(login.getUserName()!=null && login.getPassword().equals(password)) {
 			status="Success";
 		}
-		
-		
+
+
 		if(status=="Success")
 		{	
-			role=es.checkUser(username);
-			return role;
+			Customers cust=cr.findByUsername(username);
+			Employee emp=er.findByUsername(username);
+			if((emp != null) && emp.getUsername().equals(username)) {
+				return "employee";
+			}
+			if((cust != null) && cust.getUsername().equals(username)) {
+				return "customer";
+			}
+
 		}
 		return "Fail";
 	}

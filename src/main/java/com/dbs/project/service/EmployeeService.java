@@ -10,23 +10,7 @@ import com.dbs.project.repo.LoginRepo;
 
 public class EmployeeService {
 
-	@Autowired
-	CustomerRepo cr;
-	EmpRepo er;
 	
-	public String checkUser(String username) {
-		// TODO Auto-generated method stub
-		Customers cust=cr.findByUsername(username);
-		Employee emp=er.findByUsername(username);
-		if(emp.getUsername()==username) {
-			return "employee";
-		}
-		if(cust.getUsername()==username) {
-			return "customer";
-		}
-		
-		return null;
-	}
 
 	
 }
